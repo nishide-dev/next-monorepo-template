@@ -10,23 +10,20 @@ _exclude:
   - ".turbo"
   - "pnpm-lock.yaml"
 
-# Tasks to run after copy
-_tasks:
-  - "pnpm install"
-
 # Message after copy
 _message_after_copy: |
   🎉 Project "{{ project_name }}" created successfully!
   
   Next steps:
     cd {{ _copier_conf.dst_path }}
+    pnpm install
     pnpm dev
 
 # Questions
 project_name:
   type: str
   help: Project name (e.g., my-awesome-project)
-  validator: "{% if not project_name %}Project name is required{% endif %}"
+  default: "{{ _copier_conf.dst_path | basename }}"
 
 project_description:
   type: str
