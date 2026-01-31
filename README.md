@@ -1,31 +1,81 @@
-# shadcn/ui monorepo template
+# Next.js Monorepo Template
 
-This template is for creating a monorepo with shadcn/ui.
+A modern Next.js monorepo template with shadcn/ui, Turborepo, and Biome.
 
-## Usage
+## Features
+
+- ⚡ **Next.js 16** with Turbopack
+- 🎨 **shadcn/ui** components in a shared package
+- 📦 **Turborepo** for efficient monorepo builds
+- 🧹 **Biome** for fast linting and formatting
+- 🎯 **TypeScript** with strict mode
+- 💅 **Tailwind CSS v4** for styling
+
+## Quick Start
+
+### Create a new project
 
 ```bash
-pnpm dlx shadcn@latest init
+uvx copier copy --trust gh:nishide-dev/next-monorepo-template my-awesome-project
 ```
 
-## Adding components
+### Or clone directly
 
-To add components to your app, run the following command at the root of your `web` app:
+```bash
+git clone https://github.com/nishide-dev/next-monorepo-template.git my-project
+cd my-project
+pnpm install
+pnpm dev
+```
+
+## Project Structure
+
+```
+.
+├── apps/
+│   └── web/                 # Next.js application
+├── packages/
+│   ├── ui/                  # Shared UI components (shadcn/ui)
+│   └── typescript-config/   # Shared TypeScript configurations
+├── biome.json               # Biome configuration
+├── turbo.json               # Turborepo configuration
+└── pnpm-workspace.yaml      # pnpm workspace configuration
+```
+
+## Adding shadcn/ui Components
+
+Run the following command at the root of the project:
 
 ```bash
 pnpm dlx shadcn@latest add button -c apps/web
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+Components will be placed in `packages/ui/src/components/`.
 
-## Tailwind
+## Using Components
 
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-## Using components
-
-To use the components in your app, import them from the `ui` package.
+Import components from the `@workspace/ui` package:
 
 ```tsx
 import { Button } from "@workspace/ui/components/button"
 ```
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm lint` | Run Biome linter |
+| `pnpm lint:fix` | Run Biome linter with auto-fix |
+| `pnpm format` | Format code with Biome |
+| `pnpm check` | Run lint and format check |
+
+## Requirements
+
+- Node.js >= 20
+- pnpm >= 10
+
+## License
+
+MIT

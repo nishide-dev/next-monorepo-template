@@ -1,0 +1,43 @@
+# {{ project_name }}
+
+{{ project_description }}
+
+> Generated with [next-monorepo-template](https://github.com/nishide-dev/next-monorepo-template)
+
+## Getting Started
+
+```bash
+pnpm dev
+```
+
+## Adding shadcn/ui Components
+
+To add components to your app, run the following command at the root of your project:
+
+```bash
+pnpm dlx shadcn@latest add button -c apps/web
+```
+
+This will place the UI components in the `packages/ui/src/components` directory.
+
+## Using Components
+
+Import components from the `@workspace/ui` package:
+
+```tsx
+import { Button } from "@workspace/ui/components/button"
+```
+
+## Tailwind
+
+Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm lint` | Run Biome linter |
+| `pnpm format` | Format code with Biome |
+| `pnpm check` | Run lint and format check |
