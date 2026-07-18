@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "biome lint ."
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -20,13 +22,18 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@turbo/gen": "^2.5.5",
     "@types/node": "^20.19.9",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^6",
     "@workspace/typescript-config": "workspace:*",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^4.1.10"
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",
